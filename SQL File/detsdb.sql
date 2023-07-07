@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 25, 2021 at 05:47 AM
--- Server version: 10.3.15-MariaDB
--- PHP Version: 7.2.19
+-- Generation Time: Jul 07, 2023 at 06:25 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -36,7 +35,7 @@ CREATE TABLE `tbladmin` (
   `Email` varchar(120) DEFAULT NULL,
   `Password` varchar(120) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbladmin`
@@ -55,7 +54,7 @@ CREATE TABLE `tblcategory` (
   `id` int(11) NOT NULL,
   `categoryName` varchar(180) DEFAULT NULL,
   `postingDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblcategory`
@@ -80,7 +79,7 @@ CREATE TABLE `tblexpense` (
   `ExpenseItem` varchar(200) DEFAULT NULL,
   `ExpenseCost` varchar(200) DEFAULT NULL,
   `NoteDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tblexpense`
@@ -90,7 +89,8 @@ INSERT INTO `tblexpense` (`ID`, `UserId`, `ExpenseDate`, `CategoryName`, `Expens
 (1, 1, '2021-09-19', 'Grocery', 'Tea', '120', '2021-09-22 16:28:16'),
 (2, 1, '2021-09-19', 'Electronics', 'Mobile', '10000', '2021-09-22 16:28:39'),
 (3, 1, '2021-09-20', 'Other', 'Test Product', '100', '2021-09-22 16:31:10'),
-(4, 1, '2021-09-22', 'Grocery', 'Milk', '25', '2021-09-22 17:34:11');
+(4, 1, '2021-09-22', 'Grocery', 'Milk', '25', '2021-09-22 17:34:11'),
+(5, 3, '2023-07-01', 'Other', 'food', '100', '2023-07-05 15:04:13');
 
 -- --------------------------------------------------------
 
@@ -105,15 +105,15 @@ CREATE TABLE `tbluser` (
   `MobileNumber` bigint(10) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `RegDate` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 --
 -- Dumping data for table `tbluser`
 --
 
 INSERT INTO `tbluser` (`ID`, `FullName`, `Email`, `MobileNumber`, `Password`, `RegDate`) VALUES
-(1, 'Test', 'anujk30@gmail.com', 9632587410, 'f925916e2754e5e03f75dd58a5733251', '2021-09-22 16:27:29'),
-(2, 'John Doe', 'jondeo@test.com', 1234567890, 'f925916e2754e5e03f75dd58a5733251', '2021-09-24 01:26:32');
+(2, 'John Doe', 'jondeo@test.com', 1234567890, 'f925916e2754e5e03f75dd58a5733251', '2021-09-24 01:26:32'),
+(3, 'Mohammed Mujtaba Rafi farooqui', 'hamzataha20034@gmail.com', 7702840094, '8950259507cd8ce2a99f8b94674f2b77', '2023-07-05 15:03:29');
 
 --
 -- Indexes for dumped tables
@@ -164,13 +164,13 @@ ALTER TABLE `tblcategory`
 -- AUTO_INCREMENT for table `tblexpense`
 --
 ALTER TABLE `tblexpense`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `tbluser`
 --
 ALTER TABLE `tbluser`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
